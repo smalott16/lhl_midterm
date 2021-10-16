@@ -10,12 +10,12 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    let query = `SELECT * FROM widgets`;
+    let query = `SELECT * FROM users`;
     console.log(query);
     db.query(query)
       .then(data => {
-        const widgets = data.rows;
-        // res.json({ widgets });
+        const users = data.rows;
+        // res.json({ users });
         res.render("login");
         //res.send('This is the login page!')
       })
