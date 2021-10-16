@@ -21,6 +21,7 @@ Users should be able to register, log in, log out and update their profile.
 ## CREATE USER STORIES
 As a ____ I can ____ because ____.
 
+### MVP
 As a USER I can _view_ my TODO LIST to review it.
 As a USER I can _add_ a LIST ITEM because that gets automatically put in a CATEGORY.
 As a USER I can _edit_ a LIST ITEM because I wrote it incorrectly.
@@ -28,12 +29,11 @@ As a USER I can _delete_ a LIST ITEM because I don't want to do it anymore.
 As a USER I can _complete_ a LIST ITEM because I don't want to do it anymore.
 As a USER I can _re-categorize/categorize_ a LIST ITEM because I categorized it in the wrong CATEGORY OR it was not categorized in the first place.
 As a USER I can _prioritize_ LIST ITEMS because some are more important to me than others.
-
 As a _non-logged in USER_ I am directed to an information/register page. 
 
-
--- STRETCH As a USER I can _send_ a TO DO LIST to a friend because I need help with the list.
--- STRETCH As a USER I can _change_ the color of my TO DO LISTS to my preference
+### STRETCH
+As a USER I can _send_ a TO DO LIST to a friend because I need help with the list.
+As a USER I can _change_ the color of my TO DO LISTS to my preference
 
 ## NOUNS
 - USERS
@@ -42,3 +42,15 @@ As a _non-logged in USER_ I am directed to an information/register page.
 - CATEGORY
 
 ## ROUTES
+B - GET 	/ users  
+R - GET		/ users / : id 
+E - POST	/ users / : id
+A - POST	/ users
+D - POST	/ users / : id / delete    
+			    *differentiates this from the identical POST (edit) path
+
+If we are going to have client side rendering for the list actions (add, edit, delete, complete), what do our routes look like as we will be using JQuery to modify the DOM, not redirect? 
+
+App will be SPA except for registration/info page for non-logged in or non-users. 
+
+GET / users / register
