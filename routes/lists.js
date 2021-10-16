@@ -26,10 +26,23 @@ module.exports = (db) => {
   });
 
   router.get('/:id', (req, res) => {
-    db.query('SELECT * FROM users;')
+
+    const categoryID = req.params.id;
+    console.log(categoryID);
+
+    const qryString = (`
+    SELECT users.id as user_id, users.name as name, categories.name as category_name, items.name as item_name
+    FROM users
+    JOIN lists ON users.id = user_id
+    JOIN items ON lists.id = list_id
+    JOIN categories ON categories.id = category_id
+    WHERE categories.name = $1;
+    `)
+
+    db.query(qryString, [categoryID])
       .then((response) => {
-        // res.json(response.rows[0])
-        res.send('Specific category list page.')
+        res.json(response.rows)
+        //res.send('Specific category list page.')
       })
       .catch(err => {
         res
