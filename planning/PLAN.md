@@ -21,7 +21,7 @@ Users should be able to register, log in, log out and update their profile.
 ## CREATE USER STORIES
 As a ____ I can ____ because ____.
 
-### MVP
+### MVD
 As a USER I can _view_ my TODO LIST to review it.
 As a USER I can _add_ a LIST ITEM because that gets automatically put in a CATEGORY.
 As a USER I can _edit_ a LIST ITEM because I wrote it incorrectly.
@@ -34,6 +34,8 @@ As a _non-logged in USER_ I am directed to an information/register page.
 ### STRETCH
 As a USER I can _send_ a TO DO LIST to a friend because I need help with the list.
 As a USER I can _change_ the color of my TO DO LISTS to my preference
+
+## TO PRESENT
 
 ## NOUNS
 - USERS
@@ -54,3 +56,19 @@ If we are going to have client side rendering for the list actions (add, edit, d
 App will be SPA except for registration/info page for non-logged in or non-users. 
 
 GET / users / register
+
+## APIs
+- Wolfram Alpha
+- Imdb
+- Rotten Tomatoes 
+- Amazon
+
+## Pages
+
+-Register/login/Info about app
+-Logged in home page
+-Watch
+-Eat
+-Read
+-Buy
+-Priorities
