@@ -41,8 +41,9 @@ module.exports = (db) => {
 
     db.query(qryString, [categoryID])
       .then((response) => {
-        res.json(response.rows)
+        //res.json(response.rows)
         //res.send('Specific category list page.')
+        res.render("categories");
       })
       .catch(err => {
         res
