@@ -10,6 +10,7 @@ const router  = express.Router();
 
 
 module.exports = (db) => {
+
   router.get("/", (req, res) => {
     db.query(`SELECT * FROM users;`)
       .then(data => {
@@ -41,15 +42,16 @@ module.exports = (db) => {
 
     db.query(qryString, [categoryID])
       .then((response) => {
-        //res.json(response.rows)
-        //res.send('Specific category list page.')
-        res.render("categories");
+        let listItems = response.rows;
+        const templateVars = { listItems, categoryID }
+        res.render("categories", templateVars);
       })
       .catch(err => {
         res
           .status(500)
           .json({ error: err.message });
       });
+
   });
 
 
