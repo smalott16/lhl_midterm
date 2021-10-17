@@ -8,6 +8,7 @@
 const express = require('express');
 const router  = express.Router();
 
+const app = express();
 
 module.exports = (db) => {
 
@@ -15,8 +16,6 @@ module.exports = (db) => {
     db.query(`SELECT * FROM users;`)
       .then(data => {
         const users = data.rows;
-        // res.json({ users });
-        // res.send('This is the home lists page!')
         res.render("lists");
       })
       .catch(err => {
@@ -56,8 +55,8 @@ module.exports = (db) => {
   router.post('/:id', (req, res) => {
     const categoryID = req.params.id;
     const formInput = req.body.text;
-    const userID = req.session.user_id;
-
+    console.log(req)
+    const userID = req.cookies['user_id'];
 
     const qryString = `
     INSERT INTO items (name, list_id)
