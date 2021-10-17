@@ -14,6 +14,8 @@
 </head>
 
 <body>
+    <section><%- include('partials/_header') %></section>
+
   <form method="GET" action="/lists/eat">
     <button type="submit"; style="background-color: white; border: 1.5px solid grey; border-radius: 5px;color: grey">Eat</button>
   </form>
@@ -29,6 +31,10 @@
   <form method="GET" action="/lists/buy">
     <button type="submit"; style="background-color: white; border: 1.5px solid grey; border-radius: 5px;color: grey">Buy</button>
   </form>
+
+  <section>
+    <%- include('partials/_footer') %>
+  </section>
 
 </body>
 
