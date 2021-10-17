@@ -72,3 +72,8 @@ GET / users / register
 -Read
 -Buy
 -Priorities
+
+## SUNDAY PLAN
+- Set up functionality to add list item to list on categories page.
+- HTML structure for all three pages
+- Test out an API or two
