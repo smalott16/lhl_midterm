@@ -61,9 +61,12 @@ module.exports = (db) => {
 
     const qryString = `
     INSERT INTO items (name, list_id)
-    VALUES ($1, $2);`
+    VALUES ($1, (
+      SELECT lists.id FROM lists
+      JOIN categories ON category_id = categories.id
+      WHERE user_id = $2 AND categories.name = $3));`
 
-    db.query(qryString, [formInput, userID])
+    db.query(qryString, [formInput, userID, categoryID])
       .then((response) => {
 
         res.redirect(`/lists/${categoryID}`);
