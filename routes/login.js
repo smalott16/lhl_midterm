@@ -7,11 +7,18 @@
 
 const express = require('express');
 const router  = express.Router();
+const cookieSession = require('cookie-session');
+
+var app = express();
+
+app.use(cookieSession({
+  name: 'session',
+  keys: ['secretKeyOne', 'secretkeyTwo'],
+}));
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
     let query = `SELECT * FROM users`;
-    console.log(query);
     db.query(query)
       .then(data => {
         const users = data.rows;
@@ -27,8 +34,21 @@ module.exports = (db) => {
   });
 
   router.post("/", (req, res) => {
+    const qryString = `
+    SELECT id FROM users
+    WHERE email = $1;`
+    db.query(qryString, [req.body.email])
+      .then((results) => {
+        req.session.user_id = results.rows[0].id;
+        res.redirect("/lists");
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
 
-    res.redirect("/lists");
+
   })
   return router;
 };

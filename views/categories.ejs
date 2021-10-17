@@ -14,6 +14,12 @@
 </head>
 
 <body>
+
+  <form method="POST" action="/lists/<%= categoryID %>" id="form">
+    <label for="new-list-item"></label>
+    <textarea name="text" id="item-text" placeholder="What item would you like to add?"></textarea>
+
+
   <form method="POST" action="/lists/<%= categoryID %>">
     <button type="submit"; style="background-color: white; border: 1.5px solid grey; border-radius: 5px;color: grey">Submit Item</button>
   </form>

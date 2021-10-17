@@ -29,7 +29,6 @@ module.exports = (db) => {
   router.get('/:id', (req, res) => {
 
     const categoryID = req.params.id;
-    console.log(categoryID);
 
     const qryString = (`
     SELECT users.id as user_id, users.name as name, categories.name as category_name, items.name as item_name
@@ -51,12 +50,34 @@ module.exports = (db) => {
           .status(500)
           .json({ error: err.message });
       });
-
   });
 
 
   router.post('/:id', (req, res) => {
-    res.redirect("/lists/:id");
+    const categoryID = req.params.id;
+    const formInput = req.body.text;
+    const userID = req.session.user_id;
+
+
+    const qryString = `
+    INSERT INTO items (name, list_id)
+    VALUES ($1, (
+      SELECT lists.id FROM lists
+      JOIN categories ON category_id = categories.id
+      WHERE user_id = $2 AND categories.name = $3));`
+
+    db.query(qryString, [formInput, userID, categoryID])
+      .then((response) => {
+
+        res.redirect(`/lists/${categoryID}`);
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+
+
   });
 
   return router;
