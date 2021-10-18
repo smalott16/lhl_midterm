@@ -8,7 +8,10 @@
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+  <!-- Temporarily added styling to item submission form from categories -->
   <link rel="stylesheet" href="/styles/categories.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/lists.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
@@ -30,25 +33,29 @@
     </form>
     </section>
 
-  <form method="GET" action="/lists/eat">
-    <button type="submit"; style="background-color: white; border: 1.5px solid grey; border-radius: 5px;color: grey">Eat</button>
-  </form>
+  <div class="category-links">
+    <form method="GET" action="/lists/eat">
+      <button class="category-button" type="submit"><i class="fas fa-utensils"></i></button>
+    </form>
 
-  <form method="GET" action="/lists/watch">
-    <button type="submit"; style="background-color: white; border: 1.5px solid grey; border-radius: 5px;color: grey">Watch</button>
-  </form>
+    <form method="GET" action="/lists/watch">
+      <button class="category-button" type="submit"><i class="fas fa-film"></i></button>
+    </form>
 
-  <form method="GET" action="/lists/read">
-    <button type="submit"; style="background-color: white; border: 1.5px solid grey; border-radius: 5px;color: grey">Read</button>
-  </form>
+    <form method="GET" action="/lists/read">
+      <button class="category-button" type="submit"><i class="fas fa-book-open"></i></button>
+    </form>
 
-  <form method="GET" action="/lists/buy">
-    <button type="submit"; style="background-color: white; border: 1.5px solid grey; border-radius: 5px;color: grey">Buy</button>
-  </form>
+    <form method="GET" action="/lists/buy">
+      <button class="category-button" type="submit"><i class="far fa-credit-card"></i></button>
+    </form>
+  </div>
+
 
   <section>
     <%- include('partials/_footer') %>
   </section>
+
 
 </body>
 

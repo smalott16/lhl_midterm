@@ -1,0 +1,76 @@
+.add-new-item {
+  // display:flex;
+  padding: 25px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+div.category-links {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.category-links button {
+  width: 120px;
+  height: 100px;
+  padding: 0px 10px 0px 10px;
+  color: #798da3;
+  border-color: #798da3;
+  background-color: #FFFFFF;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 21px 21px 21px 21px;
+  font-family: "Open Sans";
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+}
+
+.category-links i {
+  font-size: 40px;
+  color: #29323d;
+}
+
+.category-links i:hover {
+  color: #798da3;
+  cursor: pointer;
+}
+
+.submit-new-item-button {
+  width: 112px;
+  height: 32px;
+  padding: 0px 10px 0px 10px;
+  background: #29323d;
+  color: #ffffff;
+  border-color: #29323d;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 9px 9px 9px 9px;
+  font-family: "Open Sans";
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+}
+
+.submit-new-item-button:hover {
+  color: #798da3;
+  cursor: pointer;
+}
+
+#item-text {
+    width: 350px;
+    height: 40px;
+    padding: 4px 8px 4px 8px;
+    background: #ffffff;
+    color: #c0c0c0;
+    border-color: #232323;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px 3px 3px 3px;
+
+    font-weight: 400;
+    font-size: 14px;
+    text-align: left;
+}
