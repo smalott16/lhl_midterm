@@ -14,22 +14,26 @@
 </head>
 
 <body>
+  <header><h2>Header placeholder</h2></header>
 
   <form method="POST" action="/lists/<%= categoryID %>" id="form">
     <label for="new-list-item"></label>
     <textarea name="text" id="item-text" placeholder="What item would you like to add?"></textarea>
-
-
-  <form method="POST" action="/lists/<%= categoryID %>">
     <button type="submit"; style="background-color: white; border: 1.5px solid grey; border-radius: 5px;color: grey">Submit Item</button>
   </form>
 
-  <lo>
-    <% for (let item of listItems) { %>
-      <li><%= item.item_name %></li>
-    <% } %>
-  </lo>
+  <div class="cat-head">
+    <h3>category name</h3>
+  </div>
+  <article class="category">
+    <lo>
+      <% for (let item of listItems) { %>
+        <li><%= item.item_name %></li>
+      <% } %>
+    </lo>
+  </article>
 
+  <footer></footer>
 
 </body>
 
