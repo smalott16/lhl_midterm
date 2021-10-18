@@ -1,0 +1,22 @@
+.page-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1em;
+  font-family: "Open Sans";
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+}
+
+.page-footer i:hover {
+  color: hsl(226, 43%, 44%);
+  cursor: pointer;
+}
+
+.page-footer i {
+justify-content: space-between;
+align-items: center;
+width: 30px;
+font-size: 18px
+}

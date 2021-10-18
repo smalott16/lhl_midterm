@@ -1,0 +1,27 @@
+.page-header {
+  display: flex;
+  //position: fixed;
+  // z-index: 1;
+  // top: 0;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1em;
+  font-family: "Open Sans";
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+}
+
+.head-button{
+  width: 101px;
+  height: 28px;
+  padding: 0px 10px 0px 10px;
+  background: #29323d;
+  color: #798da3;
+  border-color: #c9d3dd;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 21px 21px 21px
+}
+
+
