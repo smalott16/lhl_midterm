@@ -51,6 +51,12 @@ module.exports = (db) => {
       });
   });
 
+  router.post('/', (req, res) => {
+    const formInput = req.body.text;
+    const userID = req.cookies['user_id'];
+    //const categoryID = promise returned from category engine
+    res.redirect('/lists');
+  });
 
   router.post('/:id', (req, res) => {
     const categoryID = req.params.id;
