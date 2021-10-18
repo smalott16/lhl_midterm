@@ -42,9 +42,9 @@ const fetchWolframItem = function(searchItem) {
     })
 };
 
-fetchWolframItem('laptop')
-  .then((result) => {
-    console.log(result);
-  })
+// fetchWolframItem('laptop')
+//   .then((result) => {
+//     console.log(result);
+//   })
 
 module.exports = { fetchWolframItem };
