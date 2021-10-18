@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <header><h2>Header placeholder</h2></header>
+  <section><%- include('partials/_header') %></section>
 
   <form method="POST" action="/lists/<%= categoryID %>" id="form">
     <label for="new-list-item"></label>
@@ -33,7 +33,7 @@
     </lo>
   </article>
 
-  <footer></footer>
+  <section><%- include('partials/_footer') %></section>
 
 </body>
 
