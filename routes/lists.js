@@ -7,6 +7,7 @@
 
 const express = require('express');
 const router  = express.Router();
+const { categoryEngine } = require('../categorizer/category-engine');
 
 const app = express();
 
@@ -27,7 +28,7 @@ module.exports = (db) => {
 
   router.get('/:id', (req, res) => {
 
-    const categoryID = req.params.id;
+    const categoryName = req.params.id;
 
     const qryString = (`
     SELECT users.id as user_id, users.name as name, categories.name as category_name, items.name as item_name
@@ -38,10 +39,10 @@ module.exports = (db) => {
     WHERE categories.name = $1;
     `)
 
-    db.query(qryString, [categoryID])
+    db.query(qryString, [categoryName])
       .then((response) => {
         let listItems = response.rows;
-        const templateVars = { listItems, categoryID }
+        const templateVars = { listItems, categoryName }
         res.render("categories", templateVars);
       })
       .catch(err => {
@@ -54,12 +55,35 @@ module.exports = (db) => {
   router.post('/', (req, res) => {
     const formInput = req.body.text;
     const userID = req.cookies['user_id'];
-    //const categoryID = promise returned from category engine
-    res.redirect('/lists');
+
+
+    // categoryName.then((result) => {
+    //   return result;
+    // });
+    categoryEngine(formInput)
+      .then((categoryName) => {
+        const qryString = `
+        INSERT INTO items (name, list_id)
+        VALUES ($1, (
+          SELECT lists.id FROM lists
+          JOIN categories ON category_id = categories.id
+          WHERE user_id = $2 AND categories.name = $3));`
+
+        db.query(qryString, [formInput, userID, categoryName])
+          .then(() => {
+            console.log('we make it here')
+            res.redirect(`/lists/`);
+        })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+    })
   });
 
   router.post('/:id', (req, res) => {
-    const categoryID = req.params.id;
+    const categoryName = req.params.id;
     const formInput = req.body.text;
     console.log(req)
     const userID = req.cookies['user_id'];
@@ -71,10 +95,10 @@ module.exports = (db) => {
       JOIN categories ON category_id = categories.id
       WHERE user_id = $2 AND categories.name = $3));`
 
-    db.query(qryString, [formInput, userID, categoryID])
+    db.query(qryString, [formInput, userID, categoryName])
       .then((response) => {
 
-        res.redirect(`/lists/${categoryID}`);
+        res.redirect(`/lists/${categoryName}`);
       })
       .catch(err => {
         res
@@ -87,3 +111,5 @@ module.exports = (db) => {
 
   return router;
 };
+
+

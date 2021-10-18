@@ -20,12 +20,14 @@ const categoryEngine = function(input) {
       console.log(err.message);
     })
 }
-categoryEngine('vacuum')
-  .then((result) => {
-    console.log("return result", result);
-  })
-  .catch((err) => {
-    console.log(err.message);
-  })
+
+// categoryEngine('vacuum')
+//   .then((result) => {
+//     console.log("return result", result);
+//   })
+//   .catch((err) => {
+//     console.log(err.message);
+//   })
+
 module.exports = { categoryEngine }
 
