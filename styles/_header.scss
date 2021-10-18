@@ -3,13 +3,17 @@
   //position: fixed;
   // z-index: 1;
   // top: 0;
+  background-color: #29323d;;
   justify-content: space-between;
   align-items: center;
   padding: 0 1em;
-  font-family: "Open Sans";
-  font-weight: bold;
-  font-size: 14px;
   text-align: center;
+}
+
+.logo {
+  font-family: 'Dancing Script', cursive;
+  font-size: 25px;
+  color: #798da3;
 }
 
 .head-button{
@@ -17,7 +21,8 @@
   height: 28px;
   padding: 0px 10px 0px 10px;
   color: #798da3;
-  border-color: #c9d3dd;
+  border-color: #798da3;
+  background-color: #FFFFFF;
   border-width: 2px;
   border-style: solid;
   border-radius: 21px 21px 21px 21px;

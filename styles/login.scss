@@ -8,6 +8,12 @@
   padding-right: 20px;
 }
 
+img {
+  width: 40%;
+  height: 40%;
+  border-radius: 6px 6px 6px
+}
+
 .login-user button {
   width: 112px;
   height: 32px;
@@ -22,6 +28,11 @@
   font-weight: bold;
   font-size: 14px;
   text-align: center;
+}
+
+.login-user button:hover {
+  color: #798da3;
+  cursor: pointer;
 }
 
 .login-user {
