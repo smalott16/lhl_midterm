@@ -18,9 +18,12 @@
     "dotenv": "^2.0.0",
     "ejs": "^2.6.2",
     "express": "^4.17.1",
+    "fast-xml-parser": "^3.20.3",
     "morgan": "^1.9.1",
     "pg": "^8.5.0",
     "pg-native": "^3.0.0",
+    "request": "^2.88.2",
+    "request-promise-native": "^1.0.9",
     "sass": "^1.35.1"
   },
   "devDependencies": {
