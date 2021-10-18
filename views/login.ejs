@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/login.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
@@ -18,29 +19,31 @@
   <section><%- include('partials/_header') %></section>
 
   <section>
-    <div>
-    <img src="https://images.pexels.com/photos/389818/pexels-photo-389818.jpeg?cs=srgb&dl=pexels-ken-tomita-389818.jpg&fm=jpg" alt="Organized desk with laptop" width="400">
+    <div class='login-content'>
+      <article class="description">
+        <h1>Scratch That</h1>
+        <h3>You need us to help you organize!</h3>
+        <p>We are a list making app that will uncomplicate your life. Our app autocategorizes your list item and organizes those lists based on what is a priority for you. You can add, edit, and delete items at the click of a button! Join millions of other users on a path to simplify your life, we're here to help you do it.</p>
+      </article>
+      <img src="https://images.pexels.com/photos/389818/pexels-photo-389818.jpeg?cs=srgb&dl=pexels-ken-tomita-389818.jpg&fm=jpg" alt="Organized desk with laptop" width="50%">
+      </article>
+    </div>
 
-
-  </div>
-  <div>
-    <h1>Scratch That</h1>
-    <h3>You need us to help you organize!</h3>
-    <p>We are a list making app that will uncomplicate your life. Our app autocategorizes your list item and organizes those lists based on what is a priority for you. You can add, edit, and delete items at the click of a button! Join millions of other users on a path to simplify your life, we're here to help you do it.</p>
-  </div>
 </section>
 
-  <section>
+  <section class='login-user'>
   <form method="POST" action="/login">
-    <label>Email address:</label>
-    <input type="email" name="email" placeholder="youremail@mail.com"/>
-    <br/>
+    <div class="email-login">
+      <label>Email address:</label>
+      <input type="email" name="email" placeholder="youremail@mail.com"/>
+    </div>
 
-    <label>Password:</label>
-    <input type="password" name="password" />
-    <br/>
+    <div class="pwd-login">
+      <label>Password:</label>
+      <input type="password" name="password" />
+    </div>
 
-    <button type="submit"; style="background-color: white; border: 1.5px solid grey; border-radius: 5px;color: grey">Login!</button>
+    <button type="submit">Login!</button>
   </form>
 </section>
 <section>

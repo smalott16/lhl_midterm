@@ -1,0 +1,38 @@
+.login-content {
+  display:flex;
+  padding: 20px
+}
+
+.description {
+  align-items: column;
+  padding-right: 20px;
+}
+
+.login-user button {
+  width: 112px;
+  height: 32px;
+  padding: 0px 10px 0px 10px;
+  background: #29323d;
+  color: #ffffff;
+  border-color: #29323d;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 9px 9px 9px 9px;
+  font-family: "Open Sans";
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+}
+
+.login-user {
+  padding: 20px;
+  width: 50%;
+  margin-left: 0px;
+  margin-right: 50%;
+}
+
+.pwd-login {
+  padding-top: 10px;
+  padding-bottom: 10px
+}
+
