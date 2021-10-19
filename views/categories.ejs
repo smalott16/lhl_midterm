@@ -45,13 +45,14 @@
             <span class="item-name">
               <%= item.item_name %>
             </span>
+          </li>
 
-          <span class="select-options">
-            <i class="fas fa-check"></i>
-            <i class="fas fa-edit"></i>
-            <i class="fas fa-trash"></i>
-          </span>
-        </li>
+          <div class="select-options">
+            <form action="/lists/<%= categoryName %>/<%= item.item_id%>/complete" method="POST"><button><i class="fas fa-check"></i></button></form>
+            <form action="/lists/<%= categoryName %>/<%= item.item_id%>/edit" method="POST"><button><i class="fas fa-edit"></i></button></form>
+            <form action="/lists/<%= categoryName %>/<%= item.item_id%>/delete" method="POST"><button><i class="fas fa-trash"></i></button></form>
+          </div>
+
 
         <% } %>
       </lo>
