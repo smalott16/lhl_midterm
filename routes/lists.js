@@ -40,7 +40,8 @@ module.exports = (db) => {
     JOIN lists ON users.id = user_id
     JOIN items ON lists.id = list_id
     JOIN categories ON categories.id = category_id
-    WHERE categories.name = $1;
+    WHERE categories.name = $1
+    ORDER BY items.completed;
     `)
 
     db.query(qryString, [categoryName])
@@ -85,7 +86,7 @@ module.exports = (db) => {
   router.post('/:id', (req, res) => {
     const categoryName = req.params.id;
     const formInput = req.body.text;
-    console.log(req)
+    console.log("OH NOOOOO!")
     const userID = req.cookies['user_id'];
 
     const qryString = `
@@ -107,13 +108,35 @@ module.exports = (db) => {
       });
   });
 
-  router.post('/:id/:option/delete', (req, res) => {
-    const itemID = req.params.option;
-    const categoryName = req.params.id;
+  router.post('/:id/:categoryName/delete', (req, res) => {
+    const itemID = req.params.id;
+    const categoryName = req.params.categoryName;
 
     qryString = `
     DELETE FROM items WHERE items.id = $1;
     `
+    db.query(qryString, [itemID])
+      .then((result) => {
+        res.redirect(`/lists/${categoryName}`);
+      })
+      .catch (err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+
+  router.post('/:id/:categoryName/complete', (req, res) => {
+    console.log(req.params.id, req.params.categoryName);
+    const itemID = req.params.id;
+    const categoryName = req.params.categoryName;
+
+    qryString = `
+    UPDATE items
+    SET completed = TRUE
+    WHERE items.id = $1;
+    `
+
     db.query(qryString, [itemID])
       .then((result) => {
         res.redirect(`/lists/${categoryName}`);

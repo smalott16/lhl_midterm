@@ -82,10 +82,10 @@
   margin-bottom: 5px;
 }
 
-.category li:hover {
-  color: #798da3;
-  cursor: pointer;
-}
+// .category li:hover {
+//   color: #798da3;
+//   cursor: pointer;
+// }
 
 .select-options {
   display: flex;
@@ -95,6 +95,11 @@
 .select-options button {
   border: none;
   background-color: #FFFFFF;
+}
+
+.select-options button:hover {
+  color: #798da3;
+  cursor: pointer;
 }
 // #itemID1 {
 
