@@ -73,7 +73,12 @@ GET / users / register
 -Buy
 -Priorities
 
-## SUNDAY PLAN
-- Set up functionality to add list item to list on categories page.
-- HTML structure for all three pages
-- Test out an API or two
+## TUESDAY PLAN
+- how to reassign a category
+- drop down message to let user know which category an item has been added to
+- show limited list items on lists page, maybe reflect new item in this list?
+- start priority function logic within lists
+- look into speeding up wolfram-alpha api
+- adding restaurant API
+- functioning logout button to clear cookies
+
