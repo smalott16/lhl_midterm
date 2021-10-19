@@ -16,23 +16,12 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    let query = `SELECT * FROM users`;
-    db.query(query)
-      .then(data => {
-        const users = data.rows;
-        // res.json({ users });
-        res.render("login");
-        //res.send('This is the login page!')
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
+    const userID = req.cookies['user_id'];
+    const templateVars = {user: userID};
+    res.render("login", templateVars);
   });
 
   router.post("/", (req, res) => {
-    console.log(req.session);
     const qryString = `
     SELECT id FROM users
     WHERE email = $1;`

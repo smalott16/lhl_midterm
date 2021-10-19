@@ -19,9 +19,8 @@
 
 <body>
     <section>
-      <%- include('partials/_header') %>
+      <%- include('partials/_header', {user}) %>
     </section>
-
     <section>
       <div class="add-new-item">
         <form method="POST" action="/lists/" id="form">

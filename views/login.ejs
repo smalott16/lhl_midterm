@@ -13,10 +13,15 @@
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
 
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+
 </head>
 
 <body>
-  <section><%- include('partials/_header') %></section>
+  <section>
+    <%- include('partials/_header', {user}) %>
+  </section>
 
   <section>
     <div class='login-content'>

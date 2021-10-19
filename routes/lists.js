@@ -17,7 +17,10 @@ module.exports = (db) => {
     db.query(`SELECT * FROM users;`)
       .then(data => {
         const users = data.rows;
-        res.render("lists");
+        const userID = req.cookies['user_id'];
+        const templateVars = { user: userID };
+
+        res.render("lists", templateVars);
       })
       .catch(err => {
         res
@@ -29,6 +32,7 @@ module.exports = (db) => {
   router.get('/:id', (req, res) => {
 
     const categoryName = req.params.id;
+    const userID = req.cookies['user_id'];
 
     const qryString = (`
     SELECT users.id as user_id, users.name as name, categories.name as category_name, items.name as item_name
@@ -42,7 +46,7 @@ module.exports = (db) => {
     db.query(qryString, [categoryName])
       .then((response) => {
         let listItems = response.rows;
-        const templateVars = { listItems, categoryName }
+        const templateVars = { listItems, categoryName, userID }
         res.render("categories", templateVars);
       })
       .catch(err => {

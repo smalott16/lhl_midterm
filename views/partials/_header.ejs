@@ -19,10 +19,13 @@
   <div class="page-header">
     <a class="logo" href="/lists"><h3>Scratch That</h3></a>
     <div>
+      <% if (!user) { %>
       <button class="head-button" type="submit" >Register</a></button>
+      <% } else { %>
       <form method="POST" action="/logout">
-      <!-- <button class="head-button" type="submit"; style="background-color: white; border: 1.5px solid grey; border-radius: 5px;color: grey"><a href="/logout"></a>Logout</button> -->
+      <button class="head-button" type="submit"><a href="/logout"></a>Logout</button>
       </form>
+      <% } %>
     </div>
   </div>
   </nav>
