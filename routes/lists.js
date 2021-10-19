@@ -35,7 +35,7 @@ module.exports = (db) => {
     const userID = req.cookies['user_id'];
 
     const qryString = (`
-    SELECT users.id as user_id, users.name as name, categories.name as category_name, items.name as item_name
+    SELECT users.id as user_id, users.name as name, categories.name as category_name, items.name as item_name, items.id AS item_id
     FROM users
     JOIN lists ON users.id = user_id
     JOIN items ON lists.id = list_id
@@ -60,10 +60,6 @@ module.exports = (db) => {
     const formInput = req.body.text;
     const userID = req.cookies['user_id'];
 
-
-    // categoryName.then((result) => {
-    //   return result;
-    // });
     categoryEngine(formInput)
       .then((categoryName) => {
         const qryString = `
