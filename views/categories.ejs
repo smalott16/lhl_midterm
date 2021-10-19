@@ -40,18 +40,18 @@
       <lo>
 
         <% for (let item of listItems) { %>
-          <!-- <% console.log("list items", listItems) %> -->
-          <li id="itemID<%= item.item_id%>">
+          <!-- dynamic ids cannot start with a number -->
+          <li id="itemID<%= item.item_id%>" class='list-item'>
             <span class="item-name">
               <%= item.item_name %>
-              <%= item.item_id%>
             </span>
-          </li>
+
           <span class="select-options">
             <i class="fas fa-check"></i>
             <i class="fas fa-edit"></i>
             <i class="fas fa-trash"></i>
           </span>
+        </li>
 
         <% } %>
       </lo>
