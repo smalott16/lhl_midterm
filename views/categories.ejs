@@ -19,6 +19,7 @@
 
     <section>
     <div class="add-new-item">
+      <h3>Add new item to your <%= categoryName %> list</h3>
       <form method="POST" action="/lists/<%= categoryName %>" id="form">
         <label for="new-list-item"></label>
         <textarea name="text" id="item-text" placeholder="What item would you like to add?"></textarea>
@@ -28,19 +29,18 @@
 
   </section>
 
-  <div class="cat-head">
-    <h3>category name</h3>
-  </div>
-  <article class="category">
-    <lo>
-      <% for (let item of listItems) { %>
-        <li><%= item.item_name %></li>
-      <% } %>
-    </lo>
-  </article>
-
-  <footer></footer>
-
+  <section class="category-box">
+    <div class="cat-head">
+      <p><%= categoryName %></p>
+    </div>
+    <article class="category">
+      <lo>
+        <% for (let item of listItems) { %>
+          <li><%= item.item_name %></li>
+        <% } %>
+      </lo>
+    </article>
+  </section>
+  <%- include('partials/_footer') %>
 </body>
-
 </html>
