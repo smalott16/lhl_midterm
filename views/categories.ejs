@@ -11,7 +11,10 @@
   <link rel="stylesheet" href="/styles/categories.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+
+  <!-- app on page load -->
   <script type="text/javascript" src="/scripts/app.js"></script>
+
 </head>
 
 <body>
@@ -35,12 +38,28 @@
     </div>
     <article class="category">
       <lo>
+
         <% for (let item of listItems) { %>
-          <li><%= item.item_name %></li>
+          <!-- <% console.log("list items", listItems) %> -->
+          <li id="itemID<%= item.item_id%>">
+            <span class="item-name">
+              <%= item.item_name %>
+              <%= item.item_id%>
+            </span>
+          </li>
+          <span class="select-options">
+            <i class="fas fa-check"></i>
+            <i class="fas fa-edit"></i>
+            <i class="fas fa-trash"></i>
+          </span>
+
         <% } %>
       </lo>
     </article>
   </section>
-  <%- include('partials/_footer') %>
+  <div>
+    <%- include('partials/_footer') %>
+  </div>
+
 </body>
 </html>
