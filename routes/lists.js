@@ -105,11 +105,28 @@ module.exports = (db) => {
           .status(500)
           .json({ error: err.message });
       });
+  });
 
+  router.post('/:id/:option/delete', (req, res) => {
+    const itemID = req.params.option;
+    const categoryName = req.params.id;
 
+    qryString = `
+    DELETE FROM items WHERE items.id = $1;
+    `
+    db.query(qryString, [itemID])
+      .then((result) => {
+        res.redirect(`/lists/${categoryName}`);
+      })
+      .catch (err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
   });
 
   return router;
+
 };
 
 
