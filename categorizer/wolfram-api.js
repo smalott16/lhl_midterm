@@ -30,12 +30,26 @@ const fetchWolframItem = function(searchItem) {
   return request(`http://api.wolframalpha.com/v2/query?input=${searchItem}&appid=${appID}`)
     .then((result) => {
         const jsonObj = parser.parse(result, options);
-        //this next line of code assumes that Wolframs first group of assumptions is best if there is a clash
-        const assumptions = jsonObj.queryresult.assumptions.assumption[0].value;
         const itemDescriptions = []
+        let assumptions
+
+        //if no assumptions are returned by the wolfram api, return a blank array
+        if (!('assumptions' in jsonObj.queryresult)) {
+          return itemDescriptions;
+        }
+
+        //this next line of code assumes that Wolframs first group of assumptions is best if there is a clash
+        if (jsonObj.queryresult.assumptions.attr.count > 1) {
+          assumptions = jsonObj.queryresult.assumptions.assumption[0].value;
+        } else {
+          assumptions = jsonObj.queryresult.assumptions.assumption.value
+        }
+
+        //add all assumption descriptors to an array
         for (let i = 0; i < assumptions.length; i++) {
           itemDescriptions.push(assumptions[i].attr.desc);
         }
+
         return itemDescriptions;
       })
     .catch((err) =>{
@@ -43,9 +57,9 @@ const fetchWolframItem = function(searchItem) {
     })
 };
 
-fetchWolframItem('christmas tree')
-  .then((result) => {
-    console.log(result);
-  })
+// fetchWolframItem('harry potter')
+//   .then((result) => {
+//     console.log(result);
+//   })
 
 module.exports = { fetchWolframItem };

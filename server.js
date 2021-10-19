@@ -62,7 +62,9 @@ app.use("/login", loginRoutes(db));
 
 //Root - route to home
 app.get("/", (req, res) => {
-  res.render("login");
+  const userID = req.cookies['user_id'];
+    const templateVars = {user: userID};
+  res.render("login", templateVars);
 });
 
 app.listen(PORT, () => {
