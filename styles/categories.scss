@@ -87,6 +87,15 @@
   cursor: pointer;
 }
 
-#itemID1 {
-  background-color: red;
+.select-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+.select-options button {
+  border: none;
+  background-color: #FFFFFF;
+}
+// #itemID1 {
+
+// }
