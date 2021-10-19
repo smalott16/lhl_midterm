@@ -44,8 +44,14 @@
         <% for (let item of listItems) { %>
           <!-- dynamic ids cannot start with a number -->
           <li id="itemID<%= item.item_id%>" class='list-item'>
+
             <span class="item-name">
-              <%= item.item_name %>
+              <% if (item.completed) { %>
+                <p style="text-decoration: line-through"><%= item.item_name %></p>
+
+                <% } else { %>
+                  <p><%= item.item_name %></p>
+                <% } %>
             </span>
           </li>
 

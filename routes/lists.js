@@ -35,7 +35,7 @@ module.exports = (db) => {
     const userID = req.cookies['user_id'];
 
     const qryString = (`
-    SELECT users.id as user_id, users.name as name, categories.name as category_name, items.name as item_name, items.id AS item_id
+    SELECT users.id as user_id, users.name as name, categories.name as category_name, items.name as item_name, items.id AS item_id, items.completed as completed
     FROM users
     JOIN lists ON users.id = user_id
     JOIN items ON lists.id = list_id
@@ -47,7 +47,10 @@ module.exports = (db) => {
     db.query(qryString, [categoryName])
       .then((response) => {
         let listItems = response.rows;
-        const templateVars = { listItems, categoryName, userID }
+        console.log(response.rows);
+        const completed = response.rows.completed;
+
+        const templateVars = { listItems, categoryName, userID, completed }
         res.render("categories", templateVars);
       })
       .catch(err => {
