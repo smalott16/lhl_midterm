@@ -24,7 +24,6 @@ As a ____ I can ____ because ____.
 ### MVD
 As a USER I can _view_ my TODO LIST to review it.
 As a USER I can _add_ a LIST ITEM because that gets automatically put in a CATEGORY.
-As a USER I can _edit_ a LIST ITEM because I wrote it incorrectly.
 As a USER I can _delete_ a LIST ITEM because I don't want to do it anymore.
 As a USER I can _complete_ a LIST ITEM because I don't want to do it anymore.
 As a USER I can _re-categorize/categorize_ a LIST ITEM because I categorized it in the wrong CATEGORY OR it was not categorized in the first place.

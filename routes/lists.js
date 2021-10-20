@@ -47,10 +47,8 @@ module.exports = (db) => {
     db.query(qryString, [categoryName])
       .then((response) => {
         let listItems = response.rows;
-        console.log(response.rows);
-        const completed = response.rows.completed;
 
-        const templateVars = { listItems, categoryName, userID, completed }
+        const templateVars = { listItems, categoryName, userID}
         res.render("categories", templateVars);
       })
       .catch(err => {

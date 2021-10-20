@@ -48,18 +48,21 @@
             <span class="item-name">
               <% if (item.completed) { %>
                 <p style="text-decoration: line-through"><%= item.item_name %></p>
-
                 <% } else { %>
                   <p><%= item.item_name %></p>
                 <% } %>
             </span>
+
+            <div class="select-options">
+              <div style="display: flex ; justify-content: center">
+                <form action="/lists/<%= item.item_id%>/<%= categoryName %>/complete" method="POST"><button><i class="fas fa-check"></i></button></form>
+                <form action="/lists/<%= item.item_id%>/<%= categoryName %>/edit" method="POST"><button><i class="fas fa-edit"></i></button></form>
+                <form action="/lists/<%= item.item_id%>/<%= categoryName %>/delete" method="POST"><button><i class="fas fa-trash"></i></button></form>
+              </div>
+
+            </div>
           </li>
 
-          <div class="select-options">
-            <form action="/lists/<%= item.item_id%>/<%= categoryName %>/complete" method="POST"><button><i class="fas fa-check"></i></button></form>
-            <form action="/lists/<%= item.item_id%>/<%= categoryName %>/edit" method="POST"><button><i class="fas fa-edit"></i></button></form>
-            <form action="/lists/<%= item.item_id%>/<%= categoryName %>/delete" method="POST"><button><i class="fas fa-trash"></i></button></form>
-          </div>
 
 
         <% } %>

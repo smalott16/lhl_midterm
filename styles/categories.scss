@@ -88,9 +88,11 @@
 // }
 
 .select-options {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+
+  margin: 0 auto;
+  display: none;
+  // align-items: center;
+  // justify-content: space-between;
 }
 .select-options button {
   border: none;
