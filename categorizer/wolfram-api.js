@@ -49,17 +49,11 @@ const fetchWolframItem = function(searchItem) {
         for (let i = 0; i < assumptions.length; i++) {
           itemDescriptions.push(assumptions[i].attr.desc);
         }
-
         return itemDescriptions;
       })
     .catch((err) =>{
       console.log(err.message);
     })
 };
-
-// fetchWolframItem('harry potter')
-//   .then((result) => {
-//     console.log(result);
-//   })
 
 module.exports = { fetchWolframItem };

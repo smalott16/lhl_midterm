@@ -12,9 +12,7 @@ const fetchGooglePlace = function(input) {
 
   return axios(config)
   .then(function (response) {
-    console.log(response.data.candidates[0].types)
     const typesArr = response.data.candidates[0].types;
-    console.log(typesArr)
     return typesArr;
   })
   .catch(function (error) {

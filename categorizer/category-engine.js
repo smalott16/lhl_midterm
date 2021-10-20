@@ -5,10 +5,10 @@ const { fetchWikiInfo } = require("./wiki-api");
 const categoryEngine = function(input) {
   let category = '';
 
+  //checks for movies, films, and television series (watch category)
   return fetchWolframItem(input)
     .then((result) => {
       for (const word of result) {
-
         if (word.includes('movie') || word.includes('film') || word.includes('television series')) {
           return category = 'watch';
         }
@@ -16,20 +16,20 @@ const categoryEngine = function(input) {
           return category = 'read';
         }
       }
-
-      //call to wiki api
+      //second check for television shows (watch category)
       return fetchWikiInfo(input)
         .then((result) => {
           if (result) {
             return category = 'watch'
           }
-
+          //restaurant check (eat category)
           return fetchGooglePlace(input)
             .then((result) => {
               for (const word of result) {
                 if (word === 'cafe' || word === 'food' || word === 'restaurant' || word === 'bar' || word === 'night club') {
                   return category = 'eat';
                 } else {
+                  //if all other checks passed, input most likely a product
                   return category = 'buy';
                 }
               }
@@ -37,7 +37,6 @@ const categoryEngine = function(input) {
             .catch((err) => {
               console.log("google api error: ", err.message);
             })
-
         })
         .catch((err) => {
           console.log("wiki api error: ", err.message);

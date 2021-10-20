@@ -17,14 +17,12 @@ const fetchWikiInfo = function(input) {
     })
 }
 
-fetchWikiInfo('squid game')
-  .then((result) => {
-
-    console.log(result);
-
-  })
-  .catch((err) => {
-    console.log("wiki error:", err.message);
-  });
+// fetchWikiInfo('squid game')
+//   .then((result) => {
+//     console.log(result);
+//   })
+//   .catch((err) => {
+//     console.log("wiki error:", err.message);
+//   });
 
 module.exports = { fetchWikiInfo };
