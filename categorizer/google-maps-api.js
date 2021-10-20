@@ -20,5 +20,4 @@ const fetchGooglePlace = function(input) {
   });
 }
 
-
 module.exports = { fetchGooglePlace };
