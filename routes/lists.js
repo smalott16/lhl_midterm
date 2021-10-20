@@ -14,11 +14,20 @@ const app = express();
 module.exports = (db) => {
 
   router.get("/", (req, res) => {
-    db.query(`SELECT * FROM users;`)
+    //if we had more than one user, we would need to join on users table
+    const qryString = `
+    SELECT lists.category_id as category_id, count(items.id) as item_count
+    FROM items
+    JOIN lists ON lists.id = list_id
+    GROUP BY lists.category_id
+    ORDER BY lists.category_id;
+    `
+    db.query(qryString)
       .then(data => {
-        const users = data.rows;
+        const itemCount = data.rows;
+        console.log("itemCount ", itemCount)
         const userID = req.cookies['user_id'];
-        const templateVars = { user: userID };
+        const templateVars = { user: userID, itemCount };
 
         res.render("lists", templateVars);
       })
@@ -164,13 +173,9 @@ module.exports = (db) => {
       .then((result) => {
         res.redirect(`/lists`)
       })
-
     });
 
-
-
     return router;
-
   };
 
 
