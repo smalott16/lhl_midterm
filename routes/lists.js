@@ -149,14 +149,6 @@ module.exports = (db) => {
       });
   });
 
-  // router.post('/logout', (req, res) => {
-
-
-  //     const userID = req.cookies['user_id'];
-  //     res.clearCookie('user_id');
-  //     res.redirect('lists/login');
-
-  // })
   router.post('/reassign/:categoryName/:item_id', (req, res) => {
     const categoryName = req.params.categoryName;
     const itemID = req.params.item_id;
@@ -166,18 +158,20 @@ module.exports = (db) => {
     SET list_id = (SELECT lists.id FROM lists
       JOIN categories ON categories.id = category_id
       WHERE categories.name = $1)
-    WHERE items.id = $2;
-    `
+      WHERE items.id = $2;
+      `
 
-    db.query(qryString, [categoryName, itemID])
+      db.query(qryString, [categoryName, itemID])
       .then((result) => {
         res.redirect(`/lists`)
       })
 
-  })
+    });
 
-  return router;
 
-};
+
+    return router;
+
+  };
 
 
