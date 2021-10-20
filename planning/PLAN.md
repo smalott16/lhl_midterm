@@ -73,11 +73,14 @@ GET / users / register
 -Priorities
 
 ## TUESDAY PLAN
-- how to reassign a category
-- drop down message to let user know which category an item has been added to
+- restaurant API
+- user feedback for list assignment for item
+- look into speeding up wolfram-alpha api
+- functioning logout button to clear cookies
+
+
 - show limited list items on lists page, maybe reflect new item in this list?
 - start priority function logic within lists
-- look into speeding up wolfram-alpha api
-- adding restaurant API
-- functioning logout button to clear cookies
+
+
 
