@@ -87,7 +87,6 @@ module.exports = (db) => {
   router.post('/:id', (req, res) => {
     const categoryName = req.params.id;
     const formInput = req.body.text;
-    console.log("OH NOOOOO!")
     const userID = req.cookies['user_id'];
 
     const qryString = `
