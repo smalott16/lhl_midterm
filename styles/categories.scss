@@ -82,10 +82,10 @@
   margin-bottom: 5px;
 }
 
-// .category li:hover {
-//   color: #798da3;
-//   cursor: pointer;
-// }
+.item-name p:hover {
+  color: #257d66;
+  cursor: pointer;
+}
 
 .select-options {
 
@@ -99,11 +99,15 @@
   background-color: #FFFFFF;
 }
 
-.select-options button:hover {
+.select-options i:hover {
   color: #798da3;
   cursor: pointer;
 }
 
 .item-name p {
   margin: 0;
+}
+
+.reassign-options {
+  display:none;
 }

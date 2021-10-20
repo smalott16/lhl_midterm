@@ -56,11 +56,21 @@
             <div class="select-options">
               <div style="display: flex ; justify-content: center">
                 <form action="/lists/<%= item.item_id%>/<%= categoryName %>/complete" method="POST"><button><i class="fas fa-check"></i></button></form>
-                <form action="/lists/<%= item.item_id%>/<%= categoryName %>/edit" method="POST"><button><i class="fas fa-edit"></i></button></form>
+                <div><i class="fas fa-edit"></i></div>
                 <form action="/lists/<%= item.item_id%>/<%= categoryName %>/delete" method="POST"><button><i class="fas fa-trash"></i></button></form>
               </div>
-
+              <div class="reassign-options">
+                <div style="display: flex ; justify-content: center">
+                  <form action="/lists/reassign/eat/<%= item.item_id%>" method="POST"><button><i class="fas fa-utensils"></i></button></form>
+                  <form action="/lists/reassign/watch/<%= item.item_id%>" method="POST"><button><i class="fas fa-film"></i></button></form>
+                  <form action="/lists/reassign/read/<%= item.item_id%>" method="POST"><button><i class="fas fa-book-open"></i></button></form>
+                  <form action="/lists/reassign/buy/<%= item.item_id%>" method="POST"><button><i class="far fa-credit-card"></i></button></form>
+                </div>
+              </div>
             </div>
+
+
+
           </li>
 
 

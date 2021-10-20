@@ -132,7 +132,7 @@ module.exports = (db) => {
     const itemID = req.params.id;
     const categoryName = req.params.categoryName;
 
-    qryString = `
+    const qryString = `
     UPDATE items
     SET completed = TRUE
     WHERE items.id = $1;
@@ -157,6 +157,24 @@ module.exports = (db) => {
   //     res.redirect('lists/login');
 
   // })
+  router.post('/reassign/:categoryName/:item_id', (req, res) => {
+    const categoryName = req.params.categoryName;
+    const itemID = req.params.item_id;
+
+    const qryString = `
+    UPDATE items
+    SET list_id = (SELECT lists.id FROM lists
+      JOIN categories ON categories.id = category_id
+      WHERE categories.name = $1)
+    WHERE items.id = $2;
+    `
+
+    db.query(qryString, [categoryName, itemID])
+      .then((result) => {
+        res.redirect(`/lists`)
+      })
+
+  })
 
   return router;
 
