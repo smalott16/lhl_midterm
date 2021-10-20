@@ -25,14 +25,16 @@ const categoryEngine = function(input) {
           //restaurant check (eat category)
           return fetchGooglePlace(input)
             .then((result) => {
-              for (const word of result) {
-                if (word === 'cafe' || word === 'food' || word === 'restaurant' || word === 'bar' || word === 'night club') {
-                  return category = 'eat';
-                } else {
-                  //if all other checks passed, input most likely a product
-                  return category = 'buy';
+              //if empty aray (no restaurant match for input)
+              if (result.length > 0) {
+                for (const word of result) {
+                  if (word === 'cafe' || word === 'food' || word === 'restaurant' || word === 'bar' || word === 'night club') {
+                    return category = 'eat';
+                  }
                 }
               }
+              //if all other checks passed, input most likely a product
+              return category = 'buy';
             })
             .catch((err) => {
               console.log("google api error: ", err.message);
