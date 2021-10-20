@@ -73,10 +73,16 @@ GET / users / register
 -Priorities
 
 ## TUESDAY PLAN
-- restaurant API
-- user feedback for list assignment for item
-- look into speeding up wolfram-alpha api
-- functioning logout button to clear cookies
+- restaurant api
+- speed up wolfram-alpha api
+- response to user for category selection on item (drop down?)
+- priority function logic within lists
+
+- show a few list items from each category on list home page
+
+
+
+
 
 
 - show limited list items on lists page, maybe reflect new item in this list?
