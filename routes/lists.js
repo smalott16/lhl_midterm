@@ -149,6 +149,15 @@ module.exports = (db) => {
       });
   });
 
+  // router.post('/logout', (req, res) => {
+
+
+  //     const userID = req.cookies['user_id'];
+  //     res.clearCookie('user_id');
+  //     res.redirect('lists/login');
+
+  // })
+
   return router;
 
 };
