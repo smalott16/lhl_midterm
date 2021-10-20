@@ -25,7 +25,8 @@
     "pg-native": "^3.0.0",
     "request": "^2.88.2",
     "request-promise-native": "^1.0.9",
-    "sass": "^1.35.1"
+    "sass": "^1.35.1",
+    "wikijs": "^6.3.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.10"

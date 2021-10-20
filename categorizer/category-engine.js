@@ -1,5 +1,6 @@
 const { fetchWolframItem }  = require("./wolfram-api");
 const { fetchGooglePlace }  = require("./google-maps-api");
+const { fetchWikiInfo } = require("./wiki-api");
 
 const categoryEngine = function(input) {
   let category = '';
@@ -7,7 +8,7 @@ const categoryEngine = function(input) {
   return fetchWolframItem(input)
     .then((result) => {
       for (const word of result) {
-        console.log("word: ", word);
+
         if (word.includes('movie') || word.includes('film') || word.includes('television series')) {
           return category = 'watch';
         }
@@ -15,25 +16,36 @@ const categoryEngine = function(input) {
           return category = 'read';
         }
       }
-        //call to google api
-      return fetchGooglePlace(input)
+
+      //call to wiki api
+      return fetchWikiInfo(input)
         .then((result) => {
-          for (const word of result) {
-            if (word === 'cafe' || word === 'food' || word === 'restaurant' || word === 'bar' || word === 'night club') {
-              return category = 'eat';
-            } else {
-              return category = 'buy';
-            }
+          if (result) {
+            return category = 'watch'
           }
+
+          return fetchGooglePlace(input)
+            .then((result) => {
+              for (const word of result) {
+                if (word === 'cafe' || word === 'food' || word === 'restaurant' || word === 'bar' || word === 'night club') {
+                  return category = 'eat';
+                } else {
+                  return category = 'buy';
+                }
+              }
+            })
+            .catch((err) => {
+              console.log("google api error: ", err.message);
+            })
+
         })
         .catch((err) => {
-          console.log("google api error: ", err.message);
+          console.log("wiki api error: ", err.message);
         })
     })
     .catch((err) => {
-      console.log(err.message);
+      console.log("wolfram api error: ", err.message);
     })
-
 }
 
 module.exports = { categoryEngine }
