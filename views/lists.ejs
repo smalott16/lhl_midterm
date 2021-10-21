@@ -21,6 +21,8 @@
     <section>
       <%- include('partials/_header', {user}) %>
     </section>
+
+    <% if (user) {%>
     <section>
       <div class="add-new-item">
         <form method="POST" action="/lists/" id="form">
@@ -62,8 +64,10 @@
       </button>
     </form>
   </div>
+<% } else { %>
+<h2 class="logged-out-message">Please login to see your lists!</h2>
 
-
+<% } %>
   <section>
     <%- include('partials/_footer') %>
   </section>

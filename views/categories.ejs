@@ -18,8 +18,9 @@
 </head>
 
 <body>
-  <section><%- include('partials/_header', {user: userID}) %></section>
+  <section><%- include('partials/_header', {user}) %></section>
 
+<% if (user) {%>
   <section>
     <div class="add-new-item">
       <h3>Add new item to your <%= categoryName %> list</h3>
@@ -31,7 +32,6 @@
         </div>
       </form>
     </div>
-
   </section>
 
   <section class="category-box">
@@ -68,17 +68,18 @@
                 </div>
               </div>
             </div>
-
-
-
           </li>
-
 
 
         <% } %>
       </lo>
     </article>
   </section>
+  <% } else { %>
+    <h2 class="logged-out-message">Please login to see your lists!</h2>
+
+  <% } %>
+
   <div>
     <%- include('partials/_footer') %>
   </div>

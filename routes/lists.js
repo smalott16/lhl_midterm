@@ -15,17 +15,24 @@ module.exports = (db) => {
 
   router.get("/", (req, res) => {
     //if we had more than one user, we would need to join on users table
+    const userID = req.cookies['user_id'];
     const qryString = `
     SELECT lists.category_id as category_id, count(items.id) as item_count
     FROM items
     JOIN lists ON lists.id = list_id
+    JOIN users ON users.id = lists.user_id
+    WHERE users.id = $1
     GROUP BY lists.category_id
     ORDER BY lists.category_id;
     `
-    db.query(qryString)
+    db.query(qryString, [userID])
       .then(data => {
-        const itemCount = data.rows;
-        const userID = req.cookies['user_id'];
+
+        let itemCount = [];
+        if (userID) {
+          itemCount = data.rows;
+        }
+
         const templateVars = { user: userID, itemCount };
 
         res.render("lists", templateVars);
@@ -48,15 +55,15 @@ module.exports = (db) => {
     JOIN lists ON users.id = user_id
     JOIN items ON lists.id = list_id
     JOIN categories ON categories.id = category_id
-    WHERE categories.name = $1
+    WHERE categories.name = $1 AND users.id = $2
     ORDER BY items.completed;
     `)
 
-    db.query(qryString, [categoryName])
+    db.query(qryString, [categoryName, userID])
       .then((response) => {
         let listItems = response.rows;
 
-        const templateVars = { listItems, categoryName, userID}
+        const templateVars = { listItems, categoryName, user: userID}
         res.render("categories", templateVars);
       })
       .catch(err => {

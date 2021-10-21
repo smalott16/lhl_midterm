@@ -20,7 +20,9 @@
     <a class="logo" href="/lists"><h3>Scratch That</h3></a>
     <div>
       <% if (!user) { %>
-      <button class="head-button" type="submit" >Register</a></button>
+      <form method="GET" action="/">
+      <button class="head-button" type="submit">Login</a></button>
+    </form>
       <% } else { %>
       <form method="POST" action="/logout">
       <button class="head-button" type="submit"></a>Logout</button>

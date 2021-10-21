@@ -14,16 +14,20 @@ const fetchGooglePlace = function(input) {
   return axios(config)
   .then(function (response) {
     let typesArr = [];
-    const restaurantName = response.data.candidates[0].name.toLowerCase();
 
-    console.log(restaurantName)
+    if (response.data.candidates.length > 0) {
+      const restaurantName = response.data.candidates[0].name.toLowerCase();
 
-    //checking if the input is a reasonable match to the assumed google place
-    //we do this by checking if our input string is in the assumed place or if the assumed place is in the input string
-    if(restaurantName.includes(inputLower) || inputLower.includes(restaurantName)) {
-      const typesArr = response.data.candidates[0].types;
-      return typesArr;
+      console.log("restaurantName", restaurantName)
+
+      //checking if the input is a reasonable match to the assumed google place
+      //we do this by checking if our input string is in the assumed place or if the assumed place is in the input string
+      if(restaurantName.includes(inputLower) || inputLower.includes(restaurantName)) {
+        const typesArr = response.data.candidates[0].types;
+        return typesArr;
+      }
     }
+
     return typesArr;
   })
   .catch(function (error) {
