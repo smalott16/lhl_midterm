@@ -6,8 +6,8 @@
 }
 
 .submit-new-item-button {
-  width: 112px;
-  height: 32px;
+  width: 90px;
+  height: 28px;
   padding: 0px 10px 0px 10px;
   background: #29323d;
   color: #ffffff;
@@ -17,7 +17,7 @@
   border-radius: 9px 9px 9px 9px;
   font-family: "Open Sans";
   font-weight: bold;
-  font-size: 14px;
+  font-size: 12px;
   text-align: center;
 }
 
@@ -27,19 +27,20 @@
 }
 
 #item-text {
-    width: 350px;
-    height: 40px;
-    padding: 4px 8px 4px 8px;
-    background: #ffffff;
-    color: #c0c0c0;
-    border-color: #232323;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 3px 3px 3px 3px;
+  box-sizing: border-box;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #29323d;
+  resize: none;
+  width: 30%;
+  height: 25px;
+  font-size: 24px;
+  margin-bottom: 10px;
 
-    font-weight: 400;
-    font-size: 14px;
-    text-align: left;
+  font-weight: 400;
+  font-size: 14px;
+  text-align: left;
 }
 
 .category-box {
@@ -83,7 +84,7 @@
 }
 
 .item-name p:hover {
-  color: #257d66;
+  color: #e4b742d4;
   cursor: pointer;
 }
 
