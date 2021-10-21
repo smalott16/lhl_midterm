@@ -73,20 +73,13 @@ GET / users / register
 -Priorities
 
 ## TUESDAY PLAN
-- restaurant api
+- using wiki api for movies too
 - speed up wolfram-alpha api
-- response to user for category selection on item (drop down?)
 - priority function logic within lists
-
 - show a few list items from each category on list home page
+- ensure logged out user cannot view lists
+- error handing for empty submission or too many characters
 
-
-
-
-
-
-- show limited list items on lists page, maybe reflect new item in this list?
-- start priority function logic within lists
 
 
 
