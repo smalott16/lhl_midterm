@@ -31,11 +31,10 @@ As a ____ I can ____ because ____.
 
 ### STRETCH
 [x] As a USER I can _LOG IN_ and _LOG OUT_ to give me access to my specific LIST ITEMS
-[x] As a USER I can _prioritize_ LIST ITEMS because some are more important to me than others.
+[x] As a USER I can _prioritize_ and _Un-prioritize_ LIST ITEMS because some are more important to me than others.
+
 As a USER I can _send_ a TO DO LIST to a friend because I need help with the list.
 As a USER I can _change_ the color of my TO DO LISTS to my preference
-
-## TO PRESENT
 
 ## NOUNS
 - USERS
@@ -73,9 +72,9 @@ GET / users / register
 -Buy
 -Priorities
 
-## TUESDAY PLAN
+## THURSDAY PLAN
 - speed up wolfram-alpha api
-- show a few list items of priority from all categorie on list home page
+
 
 
 
