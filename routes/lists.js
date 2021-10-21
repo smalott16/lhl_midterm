@@ -77,25 +77,27 @@ module.exports = (db) => {
     const formInput = req.body.text;
     const userID = req.cookies['user_id'];
 
-    categoryEngine(formInput)
-      .then((categoryName) => {
-        const qryString = `
-        INSERT INTO items (name, list_id)
-        VALUES ($1, (
-          SELECT lists.id FROM lists
-          JOIN categories ON category_id = categories.id
-          WHERE user_id = $2 AND categories.name = $3));`
 
-        db.query(qryString, [formInput, userID, categoryName])
-          .then(() => {
-            res.redirect(`/lists/`);
-        })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
-    })
+      categoryEngine(formInput)
+        .then((categoryName) => {
+          const qryString = `
+          INSERT INTO items (name, list_id)
+          VALUES ($1, (
+            SELECT lists.id FROM lists
+            JOIN categories ON category_id = categories.id
+            WHERE user_id = $2 AND categories.name = $3));`
+
+          db.query(qryString, [formInput, userID, categoryName])
+            .then(() => {
+              res.redirect(`/lists/`);
+          })
+        .catch(err => {
+          res
+            .status(500)
+            .json({ error: err.message });
+        });
+      })
+
   });
 
   router.post('/:id', (req, res) => {

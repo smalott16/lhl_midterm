@@ -1,5 +1,5 @@
 // Client facing scripts here
-
+console.log("app js called here")
 $(document).ready(function() {
 
   $(".item-name").on("click", function(event) {
@@ -8,7 +8,6 @@ $(document).ready(function() {
     event.stopImmediatePropagation()
 
     const itemID = this.parentElement.id.slice(6);
-    console.log($(document.getElementById(`itemID${itemID}`)));
 
     if ($(document.getElementById(`itemID${itemID}`).getElementsByClassName('select-options')).is(":hidden")) {
       $(document.getElementById(`itemID${itemID}`).getElementsByClassName('select-options')).slideDown("slow");
@@ -23,5 +22,14 @@ $(document).ready(function() {
         $(document.getElementById(`itemID${itemID}`).getElementsByClassName('reassign-options')).slideUp("slow");
       }
     });
+  })
+
+  $("#form").on("submit", function(event) {
+
+    const itemText = $('#item-text').val();
+    console.log(this);
+    if (itemText.length > 140 || itemText.length === 0) {
+      event.preventDefault();
+    }
   })
 })

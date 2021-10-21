@@ -22,8 +22,3 @@ const fetchWikiInfo = function(input) {
 }
 
 module.exports = { fetchWikiInfo };
-
-fetchWikiInfo('Chicken Soup For The Soul')
-  .then((result) => {
-    console.log(result);
-  })
