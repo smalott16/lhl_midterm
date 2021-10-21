@@ -148,7 +148,7 @@ module.exports = (db) => {
 
     const qryString = `
     UPDATE items
-    SET completed = TRUE
+    SET completed = TRUE, priority = FALSE
     WHERE items.id = $1;
     `
 
@@ -163,9 +163,10 @@ module.exports = (db) => {
       });
   });
 
-  router.post('/:id/:categoryName/prioritize', (req, res) => {
+  router.post('/:id/:categoryName/:priority', (req, res) => {
     const itemID = req.params.id;
     const categoryName = req.params.categoryName;
+    //let priority = req.params.priority;
 
     const qryString = `
     UPDATE items

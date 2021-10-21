@@ -22,15 +22,16 @@ Users should be able to register, log in, log out and update their profile.
 As a ____ I can ____ because ____.
 
 ### MVD
-As a USER I can _view_ my TODO LIST to review it.
-As a USER I can _add_ a LIST ITEM because that gets automatically put in a CATEGORY.
-As a USER I can _delete_ a LIST ITEM because I don't want to do it anymore.
-As a USER I can _complete_ a LIST ITEM because I don't want to do it anymore.
-As a USER I can _re-categorize/categorize_ a LIST ITEM because I categorized it in the wrong CATEGORY OR it was not categorized in the first place.
-As a USER I can _prioritize_ LIST ITEMS because some are more important to me than others.
-As a _non-logged in USER_ I am directed to an information/register page. 
+[x] As a USER I can _view_ my TODO LIST to review it.
+[x] As a USER I can _add_ a LIST ITEM because that gets automatically put in a CATEGORY.
+[x] As a USER I can _delete_ a LIST ITEM because I don't want to do it anymore.
+[x] As a USER I can _complete_ a LIST ITEM because I don't want to do it anymore.
+[x] As a USER I can _re-categorize/categorize_ a LIST ITEM because I categorized it in the wrong CATEGORY OR it was not categorized in the first place.
+[x] As a _non-logged in USER_ I am directed to an information/register page. 
 
 ### STRETCH
+[x] As a USER I can _LOG IN_ and _LOG OUT_ to give me access to my specific LIST ITEMS
+[x] As a USER I can _prioritize_ LIST ITEMS because some are more important to me than others.
 As a USER I can _send_ a TO DO LIST to a friend because I need help with the list.
 As a USER I can _change_ the color of my TO DO LISTS to my preference
 
