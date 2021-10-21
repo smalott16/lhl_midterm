@@ -25,7 +25,6 @@ module.exports = (db) => {
     db.query(qryString)
       .then(data => {
         const itemCount = data.rows;
-        console.log("itemCount ", itemCount)
         const userID = req.cookies['user_id'];
         const templateVars = { user: userID, itemCount };
 
@@ -82,7 +81,6 @@ module.exports = (db) => {
 
         db.query(qryString, [formInput, userID, categoryName])
           .then(() => {
-            console.log('we make it here')
             res.redirect(`/lists/`);
         })
       .catch(err => {
@@ -136,7 +134,6 @@ module.exports = (db) => {
   });
 
   router.post('/:id/:categoryName/complete', (req, res) => {
-    console.log(req.params.id, req.params.categoryName);
     const itemID = req.params.id;
     const categoryName = req.params.categoryName;
 

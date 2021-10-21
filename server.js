@@ -69,7 +69,6 @@ app.get("/", (req, res) => {
 
 //has to be in server file to use /logout pathway without adding on to login/lists.
 app.post('/logout', (req, res) => {
-  console.log('Made it to logout!')
     const userID = req.cookies['user_id'];
     res.clearCookie('user_id');
     res.redirect('/login');
