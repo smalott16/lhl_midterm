@@ -166,15 +166,27 @@ module.exports = (db) => {
   router.post('/:id/:categoryName/:priority', (req, res) => {
     const itemID = req.params.id;
     const categoryName = req.params.categoryName;
-    //let priority = req.params.priority;
+    let priority = req.params.priority;
+
+
+    console.log('before', typeof priority, priority);
+
+    //comes in as a string, so !priority is always true.
+    if (priority === 'false') {
+      priority = true;
+    } else {
+      priority = false;
+    }
+
+    console.log('after ', typeof priority, priority);
 
     const qryString = `
     UPDATE items
-    SET priority = TRUE
+    SET priority = $2
     WHERE items.id = $1;
     `
 
-    db.query(qryString, [itemID])
+    db.query(qryString, [itemID, priority])
       .then((result) => {
         res.redirect(`/lists/${categoryName}`);
       })
