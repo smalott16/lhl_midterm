@@ -23,7 +23,5 @@ $(document).ready(function() {
         $(document.getElementById(`itemID${itemID}`).getElementsByClassName('reassign-options')).slideUp("slow");
       }
     });
-
-
   })
 })
