@@ -49,12 +49,17 @@
               <% if (item.completed) { %>
                 <p style="text-decoration: line-through"><%= item.item_name %></p>
                 <% } else { %>
-                  <p><%= item.item_name %></p>
-                <% } %>
+                  <p><%= item.item_name %>
+                  <% if (item.priority) { %>
+                    <span class="far fa-star"></span>
+                  <% } %>
+                </p>
+              <% } %>
             </span>
 
             <div class="select-options">
               <div style="display: flex ; justify-content: center">
+                <form action="/lists/<%= item.item_id%>/<%= categoryName %>/prioritize" method="POST"><button><i class="far fa-star"></i></button></form>
                 <form action="/lists/<%= item.item_id%>/<%= categoryName %>/complete" method="POST"><button><i class="fas fa-check"></i></button></form>
                 <div><i class="fas fa-edit"></i></div>
                 <form action="/lists/<%= item.item_id%>/<%= categoryName %>/delete" method="POST"><button><i class="fas fa-trash"></i></button></form>

@@ -50,19 +50,19 @@ module.exports = (db) => {
     const userID = req.cookies['user_id'];
 
     const qryString = (`
-    SELECT users.id as user_id, users.name as name, categories.name as category_name, items.name as item_name, items.id AS item_id, items.completed as completed
+    SELECT users.id as user_id, users.name as name, categories.name as category_name,
+    items.name as item_name, items.id AS item_id, items.completed as completed, items.priority as priority
     FROM users
     JOIN lists ON users.id = user_id
     JOIN items ON lists.id = list_id
     JOIN categories ON categories.id = category_id
     WHERE categories.name = $1 AND users.id = $2
-    ORDER BY items.completed;
+    ORDER BY items.completed, items.priority DESC;
     `)
 
     db.query(qryString, [categoryName, userID])
       .then((response) => {
         let listItems = response.rows;
-
         const templateVars = { listItems, categoryName, user: userID}
         res.render("categories", templateVars);
       })
@@ -147,6 +147,27 @@ module.exports = (db) => {
     const qryString = `
     UPDATE items
     SET completed = TRUE
+    WHERE items.id = $1;
+    `
+
+    db.query(qryString, [itemID])
+      .then((result) => {
+        res.redirect(`/lists/${categoryName}`);
+      })
+      .catch (err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+
+  router.post('/:id/:categoryName/prioritize', (req, res) => {
+    const itemID = req.params.id;
+    const categoryName = req.params.categoryName;
+
+    const qryString = `
+    UPDATE items
+    SET priority = TRUE
     WHERE items.id = $1;
     `
 

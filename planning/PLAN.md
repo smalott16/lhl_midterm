@@ -73,11 +73,8 @@ GET / users / register
 -Priorities
 
 ## TUESDAY PLAN
-- ensure logged out user cannot view lists
 - speed up wolfram-alpha api
-- priority function logic within lists
-- show a few list items from each category on list home page
-- error handing for empty submission or too many characters
+- show a few list items of priority from all categorie on list home page
 
 
 
