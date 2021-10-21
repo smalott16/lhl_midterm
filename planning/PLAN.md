@@ -74,8 +74,3 @@ GET / users / register
 
 ## THURSDAY PLAN
 - speed up wolfram-alpha api
-
-
-
-
-
