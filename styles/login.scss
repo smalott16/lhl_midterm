@@ -1,6 +1,11 @@
 .login-content {
   display:flex;
+  align-items: center;
   padding: 20px
+}
+
+.credentials {
+  text-align: left
 }
 
 .description {
@@ -37,9 +42,7 @@ img {
 
 .login-user {
   padding: 20px;
-  width: 50%;
   margin-left: 0px;
-  margin-right: 50%;
 }
 
 .pwd-login {
@@ -47,3 +50,12 @@ img {
   padding-bottom: 10px
 }
 
+.pwd-login input {
+  width: 207px
+}
+
+@media only screen and (max-width: 768px) {
+  img {
+    display: none
+  }
+}

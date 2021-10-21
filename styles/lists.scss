@@ -14,20 +14,23 @@ div.category-links {
   margin-right: 10%;
 }
 
+.category-links form {
+  padding: 10px
+}
+
 .category-links button {
   width: 120px;
   height: 100px;
   padding: 0px 10px 0px 10px;
   color: #798da3;
-  border-color: #e4b742d4;
+  border:none;
   background-color: #FFFFFF;
-  border-width: 1.5px;
-  border-style: solid;
-  border-radius: 21px 21px 21px 21px;
   font-family: "Open Sans";
   font-weight: bold;
   font-size: 14px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .category-links i {
@@ -56,6 +59,22 @@ div.category-links {
   text-align: center;
 }
 
+.long-line {
+  width: 120px;
+  height: 7px;
+  border-radius: 3.5px;
+  background: #c7d0d966;
+  border-top: 10px;
+}
+
+.short-line {
+  width: 100px;
+  height: 7px;
+  border-radius: 3.5px;
+  background: #c7d0d966;
+  border-top: 10px
+}
+
 .submit-new-item-button:hover {
   color: #798da3;
   cursor: pointer;
@@ -81,3 +100,13 @@ div.category-links {
 .logged-out-message {
   text-align: center;
 }
+
+@media only screen and (max-width: 600px) {
+
+  div.category-links {
+    flex-direction: column;
+    align-items: center
+  }
+
+}
+
