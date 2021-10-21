@@ -16,11 +16,13 @@ const categoryEngine = function(input) {
           return category = 'read';
         }
       }
-      //second check for television shows (watch category)
+      //second check for television shows/movies (watch category) & books (read category)
       return fetchWikiInfo(input)
         .then((result) => {
-          if (result) {
-            return category = 'watch'
+          if (result === 'watch') {
+            return category = 'watch';
+          } else if (result === 'read') {
+            return category = 'read';
           }
           //restaurant check (eat category)
           return fetchGooglePlace(input)

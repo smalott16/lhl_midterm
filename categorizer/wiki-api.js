@@ -7,10 +7,14 @@ const fetchWikiInfo = function(input) {
       return page.info();
     })
     .then((result) => {
-      if (!result.numEpisodes) {
-        return false;
+      //is there a key for numEpisodes OR director?
+      if (result.numEpisodes || result.director) {
+        return 'watch';
+      // is there a key for director?
+      } else if (result.author) {
+        return 'read';
       }
-      return true;
+      return false;
     })
     .catch((err) => {
       console.log("wiki error:", err.message);
@@ -18,3 +22,8 @@ const fetchWikiInfo = function(input) {
 }
 
 module.exports = { fetchWikiInfo };
+
+fetchWikiInfo('Chicken Soup For The Soul')
+  .then((result) => {
+    console.log(result);
+  })
