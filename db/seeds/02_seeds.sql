@@ -10,7 +10,7 @@ INSERT INTO lists (user_id, category_id) VALUES (1, 2);
 INSERT INTO lists (user_id, category_id) VALUES (1, 3);
 INSERT INTO lists (user_id, category_id) VALUES (1, 4);
 
-INSERT INTO items (name, list_id, priority) VALUES ('Cedar Creek', 1, TRUE);
+INSERT INTO items (name, list_id) VALUES ('Cedar Creek', 1);
 INSERT INTO items (name, list_id) VALUES ('Quails Gate', 1);
 INSERT INTO items (name, list_id) VALUES ('Raudz', 1);
 INSERT INTO items (name, list_id) VALUES ('OEB', 1);
