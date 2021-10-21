@@ -43,6 +43,10 @@
   text-align: left;
 }
 
+#item-text:focus {
+  outline: none;
+}
+
 .category-box {
   display: flex;
   flex-direction: column;

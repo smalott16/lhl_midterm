@@ -37,26 +37,32 @@
     </section>
 
   <div class="category-links">
-    <form method="GET" action="/lists/eat">
-      <button class="category-button" type="submit"><i class="fas fa-utensils"></i>
-        <div class="category-list-name">eat</div>
-        <div class="long-line"></div>
-        <div></div>
-        <div class="short-line"></div>
-        <div class="item-counter"><%= itemCount[0].item_count%></div>
-      </button>
-    </form>
+    <!-- <div class="mobile-row-one"> -->
+      <form method="GET" action="/lists/eat">
+        <button class="category-button" type="submit"><i class="fas fa-utensils"></i>
+          <div class="category-list-name">eat</div>
+          <div class="long-line"></div>
+          <div class="short-line"></div>
+          <div class="item-counter"><%= itemCount[0].item_count%></div>
+        </button>
+      </form>
 
-    <form method="GET" action="/lists/watch">
-      <button class="category-button" type="submit"><i class="fas fa-film"></i>
-        <div class="category-list-name">watch</div>
-        <div class="item-counter"><%= itemCount[1].item_count%></div>
-      </button>
-    </form>
+      <form method="GET" action="/lists/watch">
+        <button class="category-button" type="submit"><i class="fas fa-film"></i>
+          <div class="category-list-name">watch</div>
+          <div class="long-line"></div>
+          <div class="short-line"></div>
+          <div class="item-counter"><%= itemCount[1].item_count%></div>
+        </button>
+      </form>
+    <!-- </div> -->
 
+    <!-- <div class="mobile-row-two"> -->
     <form method="GET" action="/lists/read">
       <button class="category-button" type="submit"><i class="fas fa-book-open"></i>
         <div class="category-list-name">read</div>
+        <div class="long-line"></div>
+        <div class="short-line"></div>
         <div class="item-counter"><%= itemCount[2].item_count%></div>
       </button>
     </form>
@@ -64,9 +70,12 @@
     <form method="GET" action="/lists/buy">
       <button class="category-button" type="submit"><i class="far fa-credit-card"></i>
         <div class="category-list-name">buy</div>
+        <div class="long-line"></div>
+        <div class="short-line"></div>
         <div class="item-counter"><%= itemCount[3].item_count%></div>
       </button>
     </form>
+    <!-- </div> -->
   </div>
 <% } else { %>
 <h2 class="logged-out-message">Please login to see your lists!</h2>

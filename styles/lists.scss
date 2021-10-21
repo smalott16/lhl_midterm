@@ -1,5 +1,4 @@
 .add-new-item {
-  // display:flex;
   padding: 25px;
   text-align: center;
   margin-top: 50px;
@@ -65,6 +64,9 @@ div.category-links {
   border-radius: 3.5px;
   background: #c7d0d966;
   border-top: 10px;
+  margin-top: 10px;
+  margin-bottom: 8px;
+  padding: 4px;
 }
 
 .short-line {
@@ -72,7 +74,13 @@ div.category-links {
   height: 7px;
   border-radius: 3.5px;
   background: #c7d0d966;
-  border-top: 10px
+  border-top: 10px;
+  padding: 4px;
+  margin-bottom: 8px;
+}
+
+.item-counter {
+  color: #29323d;
 }
 
 .submit-new-item-button:hover {
@@ -97,6 +105,10 @@ div.category-links {
   text-align: left;
 }
 
+#item-text:focus {
+  outline: none;
+}
+
 .logged-out-message {
   text-align: center;
 }
@@ -104,9 +116,9 @@ div.category-links {
 @media only screen and (max-width: 600px) {
 
   div.category-links {
-    flex-direction: column;
-    align-items: center
+    // flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
   }
-
 }
 
