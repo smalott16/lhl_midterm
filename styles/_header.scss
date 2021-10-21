@@ -17,7 +17,7 @@
   text-decoration: none;
 }
 
-.head-button{
+.head-button {
   width: 90px;
   height: 28px;
   padding: 0px 10px 0px 10px;
@@ -33,4 +33,8 @@
   text-align: center;
 }
 
+.head-button:hover {
+  color: #29323d;
+  cursor: pointer;
+}
 
