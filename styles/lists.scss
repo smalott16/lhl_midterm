@@ -8,8 +8,10 @@
 div.category-links {
   display: flex;
   justify-content: space-evenly;
-  margin-top: 50px;
+  margin-top: 40px;
   margin-bottom: 50px;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .category-links button {
@@ -19,7 +21,7 @@ div.category-links {
   color: #798da3;
   border-color: #e4b742d4;
   background-color: #FFFFFF;
-  border-width: 2px;
+  border-width: 1.5px;
   border-style: solid;
   border-radius: 21px 21px 21px 21px;
   font-family: "Open Sans";
