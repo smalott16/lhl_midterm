@@ -85,7 +85,35 @@ Spencer: we wated to take on a project we both thought was acheivable while stil
 
 Katie: Also interested in api and uses a lot of to-do lists and so she had the VISION  
 
+### DEMO (Spencer Speaks, Katie Drives)
 
-### DEMO
+- Start on the login page - we are already logged in - brief overview of page then navigate to the lists page
+- While on lists page
+  - This page is the the primary jumping-off point of the app
+  - A place where users can enter items into their smart todo list
+  - Below we have our list categories (Eat, watch, read, and buy)
+  - *READ* Draw attention to the number of items in the list 
+  		(open a list as an example to reveal existing list items, then nav back to lists page)
+  - Lets try a few items!
+    * *ADD* Katie enters (The Catcher in Rye) - show list
+    * *RECATEGORIZE/EDIT* Katie enters Harry Potter - hey i meant the movie! Lets re-categorize it and then go to movies list
+    * Katie "I actaully ate there last night (Model Milk), *COMPLETE IT* 
+	* Can you also delete an item? *DELETE* 
+	* I cannot wait to go back to Kelowna and eat at Cedar Creek, so I'm going to prioritize this one for later.
+	* You know what, I eat at model milk alot, I'm just going to *DELETE IT*
 
 ## CHALLENGES
+- The wolfram API was the first we were able to get working so we used it to categorize for all our categories and later realized it was limited and had to add additional APIs to check for books, movies/tv show, and restaurants to better specify out categorization.
+
+## WHAT WENT WELL
+- Individual strengths were complimentary, we communicated well throughout the process.
+
+Spencer was able to help me better understand how the backend and routing worked and I was able to help him understand more of the front end styling CSS. 
+
+- We pair programmed the majority of our project. This helped us both solidify a full understanding of how everything works full stack. 
+
+- However, we did divide some work vertically -
+	 Spencer completed the ERDs, database, and researching our APIs. 
+	 I took the lead on wire frames, HTML&CSS 
+	 
+Thank you for watching our presentation.
