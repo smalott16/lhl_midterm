@@ -74,3 +74,18 @@ GET / users / register
 
 ## THURSDAY PLAN
 - speed up wolfram-alpha api
+
+
+## FRIDAY PRESENTATION
+
+### Introduction
+- overview of the app and why we chose it
+
+Spencer: we wated to take on a project we both thought was acheivable while still taking on challanges that we wanted to learn about such as API calls. 
+
+Katie: Also interested in api and uses a lot of to-do lists and so she had the VISION  
+
+
+### DEMO
+
+## CHALLENGES

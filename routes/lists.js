@@ -163,7 +163,7 @@ module.exports = (db) => {
       });
   });
 
-  router.post('/:id/:categoryName/:priority', (req, res) => {
+  router.post('/priority/:id/:categoryName/:priority', (req, res) => {
     const itemID = req.params.id;
     const categoryName = req.params.categoryName;
     let priority = req.params.priority;
@@ -213,6 +213,11 @@ module.exports = (db) => {
       .then((result) => {
         res.redirect(`/lists`)
       })
+      .catch (err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
     });
 
     return router;
