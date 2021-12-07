@@ -1,18 +1,9 @@
 /*
- * All routes for Widgets are defined here
- * Since this file is loaded in server.js into api/widgets,
- *   these routes are mounted onto /widgets
- * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
+ * All login routes are defined here
  */
 
 const express = require('express');
 const router  = express.Router();
-//const cookieSession = require('cookie-session');
-
-// app.use(cookieSession({
-//   name: 'session',
-//   keys: ['secretKeyOne', 'secretkeyTwo'],
-// }));
 
 module.exports = (db) => {
   router.get("/", (req, res) => {

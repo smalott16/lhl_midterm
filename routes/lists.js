@@ -1,8 +1,5 @@
 /*
- * All routes for Users are defined here
- * Since this file is loaded in server.js into api/users,
- *   these routes are mounted onto /users
- * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
+ * All lists routes are defined here
  */
 
 const express = require('express');
@@ -13,8 +10,8 @@ const app = express();
 
 module.exports = (db) => {
 
+  //display the lists page
   router.get("/", (req, res) => {
-    //if we had more than one user, we would need to join on users table
     const userID = req.cookies['user_id'];
     const qryString = `
     SELECT lists.category_id as category_id, count(items.id) as item_count
@@ -25,6 +22,8 @@ module.exports = (db) => {
     GROUP BY lists.category_id
     ORDER BY lists.category_id;
     `
+    //query the database to grab the categories and number of items in each category
+    //for a given user - pass this information to the lists template and render page
     db.query(qryString, [userID])
       .then(data => {
 
@@ -44,6 +43,7 @@ module.exports = (db) => {
       });
   });
 
+  //display the page for a specific category
   router.get('/:id', (req, res) => {
 
     const categoryName = req.params.id;
@@ -60,6 +60,7 @@ module.exports = (db) => {
     ORDER BY items.completed, items.priority DESC;
     `)
 
+    //fetch information related to a specific category and render the categories page
     db.query(qryString, [categoryName, userID])
       .then((response) => {
         let listItems = response.rows;
@@ -73,10 +74,10 @@ module.exports = (db) => {
       });
   });
 
+  //search for an item and use the category engine to automatically determine the category it should be in
   router.post('/', (req, res) => {
     const formInput = req.body.text;
     const userID = req.cookies['user_id'];
-
 
       categoryEngine(formInput)
         .then((categoryName) => {
@@ -100,6 +101,7 @@ module.exports = (db) => {
 
   });
 
+  //add an item to a category without using the category engine
   router.post('/:id', (req, res) => {
     const categoryName = req.params.id;
     const formInput = req.body.text;
@@ -124,6 +126,7 @@ module.exports = (db) => {
       });
   });
 
+  //delete an item from a category
   router.post('/:id/:categoryName/delete', (req, res) => {
     const itemID = req.params.id;
     const categoryName = req.params.categoryName;
@@ -142,6 +145,7 @@ module.exports = (db) => {
       });
   });
 
+  //set the status of the todo item to complete
   router.post('/:id/:categoryName/complete', (req, res) => {
     const itemID = req.params.id;
     const categoryName = req.params.categoryName;
@@ -163,13 +167,11 @@ module.exports = (db) => {
       });
   });
 
+  //star a specific item to make it a priority
   router.post('/priority/:id/:categoryName/:priority', (req, res) => {
     const itemID = req.params.id;
     const categoryName = req.params.categoryName;
     let priority = req.params.priority;
-
-
-    console.log('before', typeof priority, priority);
 
     //comes in as a string, so !priority is always true.
     if (priority === 'false') {
@@ -177,8 +179,6 @@ module.exports = (db) => {
     } else {
       priority = false;
     }
-
-    console.log('after ', typeof priority, priority);
 
     const qryString = `
     UPDATE items
@@ -197,6 +197,7 @@ module.exports = (db) => {
       });
   });
 
+  //re-assign an item to a different category if it was miscategorized
   router.post('/reassign/:categoryName/:item_id', (req, res) => {
     const categoryName = req.params.categoryName;
     const itemID = req.params.item_id;
