@@ -4,6 +4,13 @@ Scratch That is a multi-page to do list application using HTML, SCSS, JQuery on 
 ## FINAL PRODUCT
 Here are some examples of what "Scratch That" looks like. A user can add items to a to do list and the application will autocategorize their input into either eat, watch, read, or buy. A user is able to recategorize if done incorrectly. They can delete or complete items as well as priorize them.
 
+<img alt="login page" width="400" src="https://github.com/smalott16/lhl_midterm/blob/master/docs/login.png?raw=true"> <img/>
+
+<img alt="list home page" width="400" src="https://github.com/smalott16/lhl_midterm/blob/master/docs/list-home-page.png?raw=true"> <img/>
+
+<img alt="category page" width="400" src="https://github.com/smalott16/lhl_midterm/blob/master/docs/category-page.png?raw=true"> <img/>
+
+
 ## Getting Started
 1. Clone your copy of the repo to your dev machine
 2. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
