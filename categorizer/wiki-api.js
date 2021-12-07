@@ -10,7 +10,7 @@ const fetchWikiInfo = function(input) {
       //is there a key for numEpisodes OR director?
       if (result.numEpisodes || result.director) {
         return 'watch';
-      // is there a key for director?
+      // is there a key for author?
       } else if (result.author) {
         return 'read';
       }
